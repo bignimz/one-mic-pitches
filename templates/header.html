@@ -6,7 +6,7 @@
             <div class="nav-inner">
               <!-- Start Navbar -->
               <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="{{url_for("main_blueprint.index")}}">
+                <a class="navbar-brand" href="{{url_for("index")}}">
                   <img
                     src="{{url_for('static', filename='images/logo/logo-white.png')}}"
                     alt="Logo"
@@ -32,7 +32,7 @@
                   <ul id="nav" class="navbar-nav ms-auto">
                     <li class="nav-item">
                       <a
-                        href="{{url_for("main_blueprint.index")}}"
+                        href="{{url_for("index")}}"
                         class="active"
                         aria-label="Toggle navigation"
                         >Home</a
@@ -50,10 +50,10 @@
                 </div>
                 <!-- navbar collapse -->
                 <div class="button mx-4">
-                  <a href="{{url_for('main_blueprint.login')}}" class="btn text-uppercase">Login</a>
+                  <a href="#" class="btn text-uppercase">Login</a>
                 </div>
                 <div class="button">
-                  <a href="{{url_for('main_blueprint.signUp')}}" class="btn text-uppercase">Sign Up</a>
+                  <a href="#" class="btn text-uppercase">Sign Up</a>
                 </div>
               </nav>
               <!-- End Navbar -->
