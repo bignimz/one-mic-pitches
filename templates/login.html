@@ -1,0 +1,73 @@
+{% extends "auth-base.html" %} {% block title %}Login Page{% endblock %} {%
+block body %}
+<div class="container">
+  <section class="vh-90">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                    Login
+                  </p>
+                  <form class="mx-1 mx-md-4" method="POST">
+                    <!-- <h3 class="text-center">Sign Up</h3> -->
+                    <div class="form-group">
+                      <input
+                        class="form-control my-2"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <input
+                        class="form-control my-2"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter Password"
+                      />
+                    </div>
+
+                    <input
+                      class="btn authbg form-control my-2"
+                      type="submit"
+                      value="Login"
+                    />
+                    <small
+                      >Don't have an accout yet?
+                      <a href="{{url_for('main_blueprint.signUp')}}"
+                        >Sign Up here</a
+                      >
+                    </small>
+                  </form>
+                </div>
+                <div
+                  class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+                >
+                  <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                    class="img-fluid"
+                    alt="Sample image"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- {% if boolean != True %}
+        <h3>Welcome</h3>
+        {% else %}
+        <h3 class="danger">Please Login!</h3>
+        
+        {% endif %} -->
+</div>
+{% endblock %}
