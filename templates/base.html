@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>{% block title %} {% endblock %} One Mic | Pitch Perfect</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{url_for('static', filename='images/favicon.png')}}"
+    />
+
+    <!-- ========================= CSS here ========================= -->
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/LineIcons.3.0.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/animate.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/tiny-slider.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="preloader-inner">
+        <div class="preloader-icon">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- /End Preloader -->
+    {% include "header.html" %} {% include "hero.html" %} {% block
+    featureContent %}{% endblock %}
+
+    <!-- Start Call Action Area -->
+    <!-- <section class="call-action">
+      <div class="container">
+        <div class="inner-content">
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-md-7 col-12">
+              <div class="text">
+                <h2>
+                  You are using free <br />
+                  <span>Lite version of CryptoLand.</span>
+                </h2>
+                <p style="display: block; margin-top: 10px">
+                  Please, purchase full version of the template to get all
+                  pages, features and commercial license.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-5 col-12">
+              <div class="button">
+                <a href="#" class="btn">Buy Pro Version </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- End Call Action Area -->
+
+    {% include "footer.html" %}
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+      <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JQuery========================= -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/wow.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/tiny-slider.js')}}"></script>
+    <script src="{{url_for('static', filename='js/glightboxjs')}}"></script>
+    <script src="{{url_for('static', filename='js/count-up.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+  </body>
+</html>
