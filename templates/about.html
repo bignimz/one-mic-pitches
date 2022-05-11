@@ -2,4 +2,47 @@
 <h1>{{ post.title }}</h1>
 <p>By: {{post.author}} on {{post.date_posted}}</p>
 <p>{{post.content}}</p>
-{% endfor %} {% endblock %}
+
+{% endfor %}
+
+<form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group form-control">
+        <legend class="border-bottom mb-4">Register</legend>
+        <div class="form-group">
+          {{ form.username.label(class="form-control-label") }} {{
+          form.username.label(class="form-control
+          form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.email.label(class="form-control-label") }} {{
+          form.email.label(class="form-control form-control-lg")
+          }}
+        </div>
+        <div class="form-group">
+          {{ form.password.label(class="form-control-label") }} {{
+          form.password.label(class="form-control
+          form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{
+          form.confirm_password.label(class="form-control-label")
+          }} {{ form.confirm_password.label(class="form-control
+          form-control-lg") }}
+        </div>
+      </fieldset>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-primary authbg") }}
+      </div>
+    </form>
+  </div>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Already Have an Account?
+      <a href="{{url_for('login')}}" class="ml-2"></a>Login
+    </small>
+  </div>
+
+{% endblock %}
+
+
