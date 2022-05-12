@@ -11,55 +11,42 @@ body %}
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                    Add A New Pitch
+                    Add Pitch
                   </p>
-                  <form class="mx-1 mx-md-4" method="POST">
+                  <form action="" method="POST">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                      <legend class="border-bottom mb-4">{{ legend }}</legend>
+                      <div class="form-group">
+                        {{ form.title.label(class="form-control-label") }} {% if
+                        form.title.errors %} {{ form.title(class="form-control
+                        form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                          {% for error in form.title.errors %}
+                          <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %} {{ form.title(class="form-control
+                        form-control-lg") }} {% endif %}
+                      </div>
+
+                      <div class="form-group">
+                        {{ form.content.label(class="form-control-label") }} {%
+                        if form.content.errors %} {{
+                        form.content(class="form-control form-control-lg
+                        is-invalid") }}
+                        <div class="invalid-feedback">
+                          {% for error in form.content.errors %}
+                          <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %} {{ form.content(class="form-control
+                        form-control-lg") }} {% endif %}
+                      </div>
+                    </fieldset>
                     <div class="form-group">
-                      <input
-                        class="form-control my-3"
-                        type="text"
-                        id="first_name"
-                        name="first_name"
-                        placeholder="Enter your name"
-                      />
+                      {{ form.submit(class="btn authbg form-control mt-3") }}
                     </div>
-                    <div class="form-group">
-                      <input
-                        class="form-control my-3"
-                        type="text"
-                        id="title"
-                        name="title"
-                        placeholder="Enter pitch title"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <textarea
-                        class="form-control my-3"
-                        name="description"
-                        id="description"
-                        placeholder="Enter pitch description"
-                        rows="8"
-                      ></textarea>
-                    </div>
-                    <select
-                      class="select form-control"
-                      placeholder="Select Pitch Category"
-                    >
-                      <option value="">Select Pitch Category</option>
-                      <option value="1">Business Pitch</option>
-                      <option value="2">Sales Pitch</option>
-                      <option value="3">Project Pitch</option>
-                      <option value="4">Interview Pitch</option>
-                      <option value="5">Product Pitch</option>
-                      <option value="6">Pickup Line</option>
-                      <option value="7">Promotion Pitch</option>
-                      <option value="8">Project Fund Pitch</option>
-                    </select>
-                    <input
-                      class="btn authbg form-control my-3"
-                      type="submit"
-                      value="Add Pitch"
-                    />
                   </form>
                 </div>
                 <!-- <div

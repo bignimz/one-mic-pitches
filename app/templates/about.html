@@ -46,3 +46,39 @@
 {% endblock %}
 
 
+# Resize the picture
+output_size = (125, 125)
+i = Image.open(form_picture)
+i.thumbnail(output_size)
+i.save(picture_path)
+
+
+<div class="card mb-5" style="border-radius: 15px">
+  <div class="card-body p-4">
+        <h3 class="mb-3">{{ pitch.title }}</h3>
+        <p>{{pitch.content }}</p>
+        <p class="small mb-0">
+              <i class="far fa-star fa-lg"></i>
+              <span class="mx-2">|</span> Created by
+              <strong>{{pitch.author.username}}</strong> on {{pitch.date_posted.strftime('%Y-%m-%d')}}</span>
+        </p>
+        <hr class="my-4" />
+        <div class="d-flex justify-content-start align-items-center">
+              
+              <a href="#!">
+                    <img
+                    src="{{url_for('static', filename='profile_pics/' + pitch.author.image_file)}}"
+                    alt="avatar"
+                    class="img-fluid rounded-circle me-3"
+                    width="35"
+                    />
+              </a>
+              <button
+              type="button"
+              class="btn btn-outline-dark btn-sm btn-floating"
+              >
+                    <i class="fas fa-plus"></i>
+              </button>
+        </div>
+  </div>
+</div>
