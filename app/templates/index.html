@@ -20,36 +20,43 @@
     <div id="pitches" class="my-4"></div>
     <div class="row">
       <h2 class="text-center text-title mb-5">View Pitches</h2>
-      {% for pitch in pitches %}
+      {% for pitch in pitches.items %}
       <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".2s">
         <div class="card mb-5" style="border-radius: 15px">
           <div class="card-body p-4">
             <h3 class="mb-3"><a href="{{ url_for('pitch', pitch_id=pitch.id) }}">{{ pitch.title }}</a></h3>
             <p>{{pitch.content | truncate(50)}}</p>
-            <p class="small mb-0">
-              <i class="far fa-star fa-lg"></i>
+            <p class="small mb-0 mt-2">
+              <img
+                  src="{{url_for('static', filename='profile_pics/' + pitch.author.image_file)}}"
+                  alt="avatar"
+                  class="img-fluid rounded-circle me-3"
+                  width="35"
+                />
               <span class="mx-2">|</span> Created by
               <strong>{{pitch.author.username}}</strong> on {{pitch.date_posted.strftime('%Y-%m-%d')}}</span>
             </p>
             <hr class="my-4" />
             <div class="d-flex justify-content-start align-items-center">
               
-              <a href="#!">
-                <img
-                  src="{{url_for('static', filename='profile_pics/' + pitch.author.image_file)}}"
-                  alt="avatar"
-                  class="img-fluid rounded-circle me-3"
-                  width="35"
-                />
+              <a href="#">
+                <button
+                type="button"
+                class="btn btn-outline-dark btn-sm btn-floating" title="Like this"
+              >
+                <i class="far fa-thumbs-up fa-lg"></i>
+              </button>
               </a>
+
               <button
                 type="button"
-                class="btn btn-outline-dark btn-sm btn-floating"
+                class="btn btn-outline-dark btn-sm btn-floating mx-3"
               >
                 <i class="fas fa-comments" title="Add Comment"></i>
               </button>
+
               {% if pitch.author == current_user %}
-                <button type="button" class="btn btn-outline-dark btn-sm btn-floating mx-3" title="Edit Pitch">
+                <button type="button" class="btn btn-outline-dark btn-sm btn-floating" title="Edit Pitch">
                       <a href="{{ url_for('update_pitch', pitch_id=pitch.id) }}">
                             <i class="far fa-edit fa-lg"></i>
                       </a>
@@ -71,6 +78,19 @@
         </div> -->
       </div>
       {% endfor %}
+      <div class="text-center align-center">
+        {% for page_num in pitches.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+          {% if page_num %}
+            {% if pitches.page == page_num %}
+              <a class="btn btn-dark mb-4 text-center p-2" href="{{ url_for('index', page=page_num) }}" style="width: 30px; height: 30px;">{{ page_num }}</a>
+            {% else %}
+              <a class="btn btn-outline-dark mb-4" href="{{ url_for('index', page=page_num) }}" style="width: 30px; height: 30px;">{{ page_num }}</a>
+            {% endif %}
+          {% else %}
+          ...
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
